@@ -4,14 +4,24 @@
 
 #define square_length 64
 int height = 1000, width = 1000;
-int i = 0,j=0;
+int i = 0, j = 0;
+
 int main() {
     int running = 1;
     SDL_Window *window = SDL_CreateWindow("Game Engine", 10, 10, width, height, 0);
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     //SDL_SetWindowFullscreen(window, 1);
     SDL_GetWindowSize(window, &width, &height);
+    SDL_Color color, mouse_color;
+    color.r = 100;
+    color.g = 200;
+    color.b = 10;
+    color.a = 10;
 
+    mouse_color.r = 255;
+    mouse_color.g = 100;
+    mouse_color.b = 240;
+    mouse_color.a = 30;
     grid_details *grid = malloc(sizeof(square_length));
 
     grid->length = height;
@@ -23,15 +33,13 @@ int main() {
     double delta = 0;
 
 
-
-
     while (running) {
         //Limiting framerate
         a = SDL_GetTicks();
         delta = a - b;
 
-        if (delta > 1000/60.0)
-        {
+
+        if (delta > 1000 / 60.0) {
             b = a;
 
             SDL_Event event;
@@ -49,15 +57,13 @@ int main() {
                     if (event.key.keysym.sym == SDLK_w) {
                         i--;
 
-                    } else  if (event.key.keysym.sym == SDLK_s) {
+                    } else if (event.key.keysym.sym == SDLK_s) {
                         i++;
 
-                    }
-                    else  if (event.key.keysym.sym == SDLK_a) {
+                    } else if (event.key.keysym.sym == SDLK_a) {
                         j--;
 
-                    }
-                    else  if (event.key.keysym.sym == SDLK_d) {
+                    } else if (event.key.keysym.sym == SDLK_d) {
                         j++;
 
                     }
@@ -69,18 +75,19 @@ int main() {
 
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderClear(renderer);
-            draw_grid(renderer,grid);
-
-            color_rect(renderer,i,j,grid);
+            draw_grid(renderer, grid);
+            color_rect(renderer, i, j, grid, &color);
+            mouse_handle(renderer, grid, &mouse_color);
             SDL_RenderPresent(renderer);
 
-            if (i==64) i=0;
+
+            if (i == 64) i = 0;
 
 
         }
-        }
 
 
+    }
 
 
     SDL_Quit();

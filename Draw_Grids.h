@@ -6,12 +6,19 @@
 #define MICROMOUSE_DRAW_GRIDS_H
 
 #include "SDL.h"
-typedef struct grid_details{
+
+typedef struct grid_details {
     int length;
     int width;
     int squarelength;
     int square_dimensions;
 } grid_details;
-void draw_grid(SDL_Renderer *renderer, grid_details* grid);
-void color_rect(SDL_Renderer *renderer, int top, int left, grid_details *grid);
+
+void draw_grid(SDL_Renderer *renderer, grid_details *grid);
+
+void color_rect(SDL_Renderer *renderer, int top, int left, grid_details *grid, SDL_Color *color);
+
+void mouse_handle(SDL_Renderer *renderer, grid_details *grid, SDL_Color *color);
+
+
 #endif //MICROMOUSE_DRAW_GRIDS_H
