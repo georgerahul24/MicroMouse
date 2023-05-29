@@ -2,7 +2,7 @@
 #include "SDL.h"
 #include "Draw_Grids.h"
 
-#define square_length 64
+#define square_length 200
 int height = 1000, width = 1000;
 int i = 0, j = 0;
 
@@ -24,6 +24,7 @@ int main() {
     mouse_color.a = 30;
     grid_details *grid = malloc(sizeof(square_length));
 
+
     grid->length = height;
     grid->width = width;
     grid->square_dimensions = height / square_length;
@@ -39,7 +40,7 @@ int main() {
         delta = a - b;
 
 
-        if (delta > 1000 / 60.0) {
+        if (delta > 1000 / 120.0) {
             b = a;
 
             SDL_Event event;
@@ -81,7 +82,8 @@ int main() {
             SDL_RenderPresent(renderer);
 
 
-            if (i == 64) i = 0;
+
+
 
 
         }

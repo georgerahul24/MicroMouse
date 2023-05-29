@@ -1,6 +1,6 @@
-"/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/ninja/mac/ninja" -G Ninja -S /Users/gr/Desktop/C/MicroMouse -B /Users/gr/Desktop/C/MicroMouse/cmake-build-debug
+"/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/ninja/mac/ninja" "-DCMAKE_CXX_FLAGS=-fcoverage-mapping -fprofile-instr-generate" "-DCMAKE_C_FLAGS=-fcoverage-mapping -fprofile-instr-generate" -G Ninja -S /Users/gr/Desktop/C/MicroMouse -B /Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage
 
--- CMAKE_BINARY_DIR: /Users/gr/Desktop/C/MicroMouse/cmake-build-debug
+-- CMAKE_BINARY_DIR: /Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage
 -- CMAKE_SOURCE_DIR: /Users/gr/Desktop/C/MicroMouse
 -- CMAKE_COMMAND: /Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cmake
 -- CMAKE_VERSION: 3.25.2
@@ -31,4 +31,4 @@
 
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/gr/Desktop/C/MicroMouse/cmake-build-debug
+-- Build files have been written to: /Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage

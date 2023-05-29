@@ -1,5 +1,6 @@
 #include "Draw_Grids.h"
 
+
 void draw_grid(SDL_Renderer *renderer, grid_details *grid) {
     //drawing rows
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 125);
@@ -30,7 +31,6 @@ void draw_grid(SDL_Renderer *renderer, grid_details *grid) {
 }
 
 void color_rect(SDL_Renderer *renderer, int top, int left, grid_details *grid, SDL_Color *color) {
-
     int starting_top = grid->square_dimensions * top;
     int starting_left = grid->square_dimensions * left;
     SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
@@ -43,12 +43,24 @@ void color_rect(SDL_Renderer *renderer, int top, int left, grid_details *grid, S
 }
 
 
-void mouse_handle(SDL_Renderer *renderer,grid_details* grid,SDL_Color* color) {
+void mouse_handle(SDL_Renderer *renderer, grid_details *grid, SDL_Color *color) {
     int x, y;
+    static node *head = NULL;
+
+
     unsigned int state;
     state = SDL_GetMouseState(&y, &x);
-    if (state==1){
-        color_rect(renderer,x/15,y/15,grid,color);
+
+    if (state == 1) {
+        check(&head, x, y);
+
     }
+
+    node *curr = head;
+    while (curr != NULL) {
+        color_rect(renderer, curr->x, curr->y, grid, color);
+        curr=curr->next;
+    }
+
 
 }

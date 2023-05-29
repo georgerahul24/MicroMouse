@@ -1,17 +1,5 @@
 # ninja log v5
-2	75	1685377281549608503	CMakeFiles/MicroMouse.dir/Draw_Grids.c.o	fd58bfbdc574cafa
-76	204	1685377281677713765	bin/MicroMouse	265de3e0db5e54b7
-2	76	1685377281550668877	CMakeFiles/MicroMouse.dir/main.c.o	6ddd7fcb8ab0d362
-2	77	1685377669340053366	CMakeFiles/MicroMouse.dir/main.c.o	6ddd7fcb8ab0d362
-2	73	1685377674869919544	CMakeFiles/MicroMouse.dir/Draw_Grids.c.o	fd58bfbdc574cafa
-73	202	1685377674998223975	bin/MicroMouse	265de3e0db5e54b7
-3	76	1685377710187633812	CMakeFiles/MicroMouse.dir/Draw_Grids.c.o	fd58bfbdc574cafa
-76	206	1685377710316721743	bin/MicroMouse	265de3e0db5e54b7
-2	75	1685377877438768661	CMakeFiles/MicroMouse.dir/Draw_Grids.c.o	fd58bfbdc574cafa
-76	203	1685377877565678135	bin/MicroMouse	265de3e0db5e54b7
-2	76	1685377889485351376	CMakeFiles/MicroMouse.dir/Draw_Grids.c.o	fd58bfbdc574cafa
-76	203	1685377889612485475	bin/MicroMouse	265de3e0db5e54b7
-2	80	1685377902903313957	CMakeFiles/MicroMouse.dir/Draw_Grids.c.o	fd58bfbdc574cafa
-80	203	1685377903026473060	bin/MicroMouse	265de3e0db5e54b7
-2	73	1685377914667507708	CMakeFiles/MicroMouse.dir/Draw_Grids.c.o	fd58bfbdc574cafa
-73	200	1685377914793485766	bin/MicroMouse	265de3e0db5e54b7
+2	80	1685385104952111010	CMakeFiles/MicroMouse.dir/Draw_Grids.c.o	fd58bfbdc574cafa
+95	235	1685385442163926851	bin/MicroMouse	265de3e0db5e54b7
+2	95	1685385442024996720	CMakeFiles/MicroMouse.dir/main.c.o	6ddd7fcb8ab0d362
+2	35	1685382335171216081	CMakeFiles/MicroMouse.dir/LinkedList.c.o	e460bdafb729a1bc

@@ -4,14 +4,16 @@
 
 #ifndef MICROMOUSE_DRAW_GRIDS_H
 #define MICROMOUSE_DRAW_GRIDS_H
-
+#include "LinkedList.h"
 #include "SDL.h"
+
 
 typedef struct grid_details {
     int length;
     int width;
     int squarelength;
     int square_dimensions;
+    int*  grid;
 } grid_details;
 
 void draw_grid(SDL_Renderer *renderer, grid_details *grid);

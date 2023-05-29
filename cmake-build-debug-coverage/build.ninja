@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/gr/Desktop/C/MicroMouse/cmake-build-debug/
+cmake_ninja_workdir = /Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage/
 # =============================================================================
 # Object build statements for EXECUTABLE target MicroMouse
 
@@ -51,21 +51,21 @@ build cmake_object_order_depends_target_MicroMouse: phony || CMakeFiles/MicroMou
 
 build CMakeFiles/MicroMouse.dir/main.c.o: C_COMPILER__MicroMouse_Debug /Users/gr/Desktop/C/MicroMouse/main.c || cmake_object_order_depends_target_MicroMouse
   DEP_FILE = CMakeFiles/MicroMouse.dir/main.c.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu2x
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu2x
   INCLUDES = -I/opt/homebrew/include/SDL2
   OBJECT_DIR = CMakeFiles/MicroMouse.dir
   OBJECT_FILE_DIR = CMakeFiles/MicroMouse.dir
 
 build CMakeFiles/MicroMouse.dir/Draw_Grids.c.o: C_COMPILER__MicroMouse_Debug /Users/gr/Desktop/C/MicroMouse/Draw_Grids.c || cmake_object_order_depends_target_MicroMouse
   DEP_FILE = CMakeFiles/MicroMouse.dir/Draw_Grids.c.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu2x
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu2x
   INCLUDES = -I/opt/homebrew/include/SDL2
   OBJECT_DIR = CMakeFiles/MicroMouse.dir
   OBJECT_FILE_DIR = CMakeFiles/MicroMouse.dir
 
 build CMakeFiles/MicroMouse.dir/LinkedList.c.o: C_COMPILER__MicroMouse_Debug /Users/gr/Desktop/C/MicroMouse/LinkedList.c || cmake_object_order_depends_target_MicroMouse
   DEP_FILE = CMakeFiles/MicroMouse.dir/LinkedList.c.o.d
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu2x
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu2x
   INCLUDES = -I/opt/homebrew/include/SDL2
   OBJECT_DIR = CMakeFiles/MicroMouse.dir
   OBJECT_FILE_DIR = CMakeFiles/MicroMouse.dir
@@ -79,7 +79,7 @@ build CMakeFiles/MicroMouse.dir/LinkedList.c.o: C_COMPILER__MicroMouse_Debug /Us
 # Link the executable bin/MicroMouse
 
 build bin/MicroMouse: C_EXECUTABLE_LINKER__MicroMouse_Debug CMakeFiles/MicroMouse.dir/main.c.o CMakeFiles/MicroMouse.dir/Draw_Grids.c.o CMakeFiles/MicroMouse.dir/LinkedList.c.o | /opt/homebrew/lib/libSDL2main.a /opt/homebrew/lib/libSDL2.dylib /opt/homebrew/lib/libSDL2_ttf.dylib /opt/homebrew/lib/libSDL2_ttf.dylib /opt/homebrew/lib/libSDL2_image.dylib /opt/homebrew/lib/libSDL2_mixer.dylib
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk
   LINK_LIBRARIES = /opt/homebrew/lib/libSDL2main.a  /opt/homebrew/lib/libSDL2.dylib  -framework Cocoa  /opt/homebrew/lib/libSDL2_ttf.dylib  /opt/homebrew/lib/libSDL2_ttf.dylib  -framework Cocoa  /opt/homebrew/lib/libSDL2_image.dylib  /opt/homebrew/lib/libSDL2_mixer.dylib
   OBJECT_DIR = CMakeFiles/MicroMouse.dir
   POST_BUILD = :
@@ -92,7 +92,7 @@ build bin/MicroMouse: C_EXECUTABLE_LINKER__MicroMouse_Debug CMakeFiles/MicroMous
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/gr/Desktop/C/MicroMouse/cmake-build-debug && "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage && "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -103,7 +103,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/gr/Desktop/C/MicroMouse/cmake-build-debug && "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S/Users/gr/Desktop/C/MicroMouse -B/Users/gr/Desktop/C/MicroMouse/cmake-build-debug
+  COMMAND = cd /Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage && "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S/Users/gr/Desktop/C/MicroMouse -B/Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -121,7 +121,7 @@ build MicroMouse: phony bin/MicroMouse
 # =============================================================================
 
 #############################################
-# Folder: /Users/gr/Desktop/C/MicroMouse/cmake-build-debug
+# Folder: /Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage
 
 build all: phony bin/MicroMouse
 
