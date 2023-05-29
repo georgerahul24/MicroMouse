@@ -17,5 +17,5 @@ typedef struct node {
 void push(node **head, int x, int y);
 
 void check(node **head, int x, int y);
-
+void remove_element(node **head, int x, int y);
 #endif //MICROMOUSE_LINKEDLIST_H

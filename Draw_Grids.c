@@ -43,7 +43,7 @@ void color_rect(SDL_Renderer *renderer, int top, int left, grid_details *grid, S
 }
 
 
-void mouse_handle(SDL_Renderer *renderer, grid_details *grid, SDL_Color *color) {
+void mouse_handle(SDL_Renderer *renderer, grid_details *grid, SDL_Color *color,int running) {
     int x, y;
     static node *head = NULL;
 
@@ -51,9 +51,13 @@ void mouse_handle(SDL_Renderer *renderer, grid_details *grid, SDL_Color *color) 
     unsigned int state;
     state = SDL_GetMouseState(&y, &x);
 
-    if (state == 1) {
+    if (state == 1 && running == 2) {
         check(&head, x, y);
 
+    }
+
+    else if (state==1 && running==3){
+        remove_element(&head,x,y);
     }
 
     node *curr = head;
