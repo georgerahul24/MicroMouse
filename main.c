@@ -15,12 +15,8 @@ int main() {
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     //SDL_SetWindowFullscreen(window, 1);
     SDL_GetWindowSize(window, &width, &height);
-    SDL_Color obstacle_color = {255, 100, 240, 30}, target_color = {255, 100, 40, 30};
-    SDL_Color *path_color = malloc(sizeof(SDL_Color));
-    path_color->r = 100;
-    path_color->g = 200;
-    path_color->b = 100;
-    path_color->a = 20;
+    SDL_Color obstacle_color = {255, 100, 240, 30}, target_color = {255, 100, 40, 30},path_color = {200,10,80,20};
+
 
 
     grid_details *grid = malloc(sizeof(grid_details));
@@ -105,9 +101,48 @@ int main() {
 
 
     if (status) {
-        SolveMaze1(renderer, grid, obstacles, i, j, square_length / 2, square_length / 2);
+        path = SolveMaze1(renderer, grid, obstacles, i, j, square_length / 2, square_length / 2);
+        running = 1;
+        while (running) {
+            a = SDL_GetTicks();
+            delta = a - b;
+
+
+            if (delta > 1000 / 60.0) {
+                b = a;
+
+                SDL_Event event;
+                while (SDL_PollEvent(&event)) {
+                    if (event.type == SDL_QUIT)
+                        running = 0;
+                    else if (event.type == SDL_KEYDOWN) {
+                        if (event.key.keysym.sym == SDLK_ESCAPE) {
+                            running = 0;
+
+                        }
+                    }
+
+                    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                    SDL_RenderClear(renderer);
+                    draw_grid(renderer, grid);
+                    color_rect(renderer, i, j, grid, &path_color);
+                    obstacles = mouse_handle(running);
+                    RenderLinkedCells(renderer, obstacles, grid, &obstacle_color);
+                    RenderLinkedCells(renderer, path, grid, grid->path_color);
+
+
+                    color_rect(renderer, square_length / 2, square_length / 2, grid, &target_color);
+                    SDL_RenderPresent(renderer);
+                }
+
+
+            }
+
+        }
 
     }
+
+
     SDL_Quit();
 
     return 1;
