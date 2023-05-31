@@ -9,7 +9,7 @@ int height = 1000, width = 1000;
 int i = 0, j = 0;
 
 int main() {
-    int running = 1;
+    int running = 1,status=0;
     node *obstacles = NULL, *path = NULL;
     SDL_Window *window = SDL_CreateWindow("Game Engine", 10, 10, width, height, 0);
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -82,6 +82,13 @@ int main() {
                         running = 3;
 
                     }
+                    else if (event.key.keysym.sym == SDLK_f) {
+                        running = 0;
+                        status = 1;
+                        break;
+
+                    }
+
 
 
                 }
@@ -92,21 +99,23 @@ int main() {
             SDL_RenderClear(renderer);
             draw_grid(renderer, grid);
             color_rect(renderer, i, j, grid, &color);
-
             obstacles=mouse_handle(running);
             RenderLinkedCells(renderer,obstacles,grid,&mouse_color);
-
             color_rect(renderer,square_length/2,square_length/2,grid,&target_color);
-
             SDL_RenderPresent(renderer);
 
         }
 
 
+
+
     }
 
 
+    if(status){
+        SolveMaze1(renderer,grid,&color,obstacles,i,j,square_length/2,square_length/2);
 
+    }
     SDL_Quit();
 
     return 1;
