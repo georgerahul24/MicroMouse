@@ -8,7 +8,7 @@
 #include "LinkedList.h"
 #include "RenderCells.h"
 
-node *SolveMaze1(SDL_Renderer *renderer, grid_details *grid, SDL_Color *color, node *obstacles, int sx, int sy, int tx,
+node *SolveMaze1(SDL_Renderer *renderer, grid_details *grid,node *obstacles, int sx, int sy, int tx,
                  int ty);
 
 #endif //MICROMOUSE_SOLVEMAZE1_H

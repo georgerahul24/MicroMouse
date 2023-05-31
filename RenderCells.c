@@ -24,15 +24,14 @@ void RenderLinkedCells(SDL_Renderer *renderer, node *head, grid_details *grid, S
     }
 }
 
-void RenderLinkedCellsAnimated(SDL_Renderer *renderer, node *head, grid_details *grid, SDL_Color *color) {
+void RenderLinkedCellsAnimated(SDL_Renderer *renderer, node *head, grid_details *grid,SDL_Color * color) {
     node *curr = head;
     unsigned int a = SDL_GetTicks();
     unsigned int b = SDL_GetTicks();
     double delta = 0;
     int final_x=0,final_y=0;
 
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderClear(renderer);
+
     while (curr != NULL) {
 
         while (1) {
@@ -56,8 +55,7 @@ void RenderLinkedCellsAnimated(SDL_Renderer *renderer, node *head, grid_details 
 
         curr = curr->next;
     }
-    draw_grid(renderer, grid);
-    SDL_RenderPresent(renderer);
+
 
 }
 

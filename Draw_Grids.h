@@ -14,6 +14,12 @@ typedef struct grid_details {
     int width;
     int squarelength;
     int square_dimensions;
+
+
+    SDL_Color* path_color;
+    SDL_Color* obstacle_color;
+    SDL_Color* target_color;
+
 } grid_details;
 
 void draw_grid(SDL_Renderer *renderer, grid_details *grid);

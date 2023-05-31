@@ -9,34 +9,30 @@ int height = 1000, width = 1000;
 int i = 0, j = 0;
 
 int main() {
-    int running = 1,status=0;
+    int running = 1, status = 0;
     node *obstacles = NULL, *path = NULL;
     SDL_Window *window = SDL_CreateWindow("Game Engine", 10, 10, width, height, 0);
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     //SDL_SetWindowFullscreen(window, 1);
     SDL_GetWindowSize(window, &width, &height);
-    SDL_Color color, mouse_color, target_color;
-    color.r = 100;
-    color.g = 200;
-    color.b = 10;
-    color.a = 10;
+    SDL_Color obstacle_color = {255, 100, 240, 30}, target_color = {255, 100, 40, 30};
+    SDL_Color *path_color = malloc(sizeof(SDL_Color));
+    path_color->r = 100;
+    path_color->g = 200;
+    path_color->b = 100;
+    path_color->a = 20;
 
-    mouse_color.r = 255;
-    mouse_color.g = 100;
-    mouse_color.b = 240;
-    mouse_color.a = 30;
-    grid_details *grid = malloc(sizeof(square_length));
 
-    target_color.r = 255;
-    target_color.g = 100;
-    target_color.b = 40;
-    target_color.a = 30;
-
+    grid_details *grid = malloc(sizeof(grid_details));
+    grid->path_color = &path_color;
+    grid->target_color = &target_color;
+    grid->obstacle_color = &obstacle_color;
 
     grid->length = height;
     grid->width = width;
     grid->square_dimensions = height / square_length;
     grid->squarelength = square_length;
+
     unsigned int a = SDL_GetTicks();
     unsigned int b = SDL_GetTicks();
     double delta = 0;
@@ -81,14 +77,12 @@ int main() {
                     } else if (event.key.keysym.sym == SDLK_k) {
                         running = 3;
 
-                    }
-                    else if (event.key.keysym.sym == SDLK_f) {
+                    } else if (event.key.keysym.sym == SDLK_f) {
                         running = 0;
                         status = 1;
                         break;
 
                     }
-
 
 
                 }
@@ -98,22 +92,20 @@ int main() {
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderClear(renderer);
             draw_grid(renderer, grid);
-            color_rect(renderer, i, j, grid, &color);
-            obstacles=mouse_handle(running);
-            RenderLinkedCells(renderer,obstacles,grid,&mouse_color);
-            color_rect(renderer,square_length/2,square_length/2,grid,&target_color);
+            color_rect(renderer, i, j, grid, &path_color);
+            obstacles = mouse_handle(running);
+            RenderLinkedCells(renderer, obstacles, grid, &obstacle_color);
+            color_rect(renderer, square_length / 2, square_length / 2, grid, &target_color);
             SDL_RenderPresent(renderer);
 
         }
 
 
-
-
     }
 
 
-    if(status){
-        SolveMaze1(renderer,grid,&color,obstacles,i,j,square_length/2,square_length/2);
+    if (status) {
+        SolveMaze1(renderer, grid, obstacles, i, j, square_length / 2, square_length / 2);
 
     }
     SDL_Quit();
