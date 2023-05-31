@@ -4,6 +4,7 @@
 
 #ifndef MICROMOUSE_DRAW_GRIDS_H
 #define MICROMOUSE_DRAW_GRIDS_H
+
 #include "LinkedList.h"
 #include "SDL.h"
 
@@ -19,7 +20,7 @@ void draw_grid(SDL_Renderer *renderer, grid_details *grid);
 
 void color_rect(SDL_Renderer *renderer, int top, int left, grid_details *grid, SDL_Color *color);
 
-void mouse_handle(SDL_Renderer *renderer, grid_details *grid, SDL_Color *color,int running);
+node *mouse_handle(int running);
 
 
 #endif //MICROMOUSE_DRAW_GRIDS_H

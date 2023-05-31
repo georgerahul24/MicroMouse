@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "SDL.h"
 #include "Draw_Grids.h"
+#include "SolveMaze1.h"
+#include "RenderCells.h"
 
 #define square_length 64
 int height = 1000, width = 1000;
@@ -8,12 +10,12 @@ int i = 0, j = 0;
 
 int main() {
     int running = 1;
-
+    node *obstacles = NULL, *path = NULL;
     SDL_Window *window = SDL_CreateWindow("Game Engine", 10, 10, width, height, 0);
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     //SDL_SetWindowFullscreen(window, 1);
     SDL_GetWindowSize(window, &width, &height);
-    SDL_Color color, mouse_color,target_color;
+    SDL_Color color, mouse_color, target_color;
     color.r = 100;
     color.g = 200;
     color.b = 10;
@@ -31,9 +33,6 @@ int main() {
     target_color.a = 30;
 
 
-
-
-
     grid->length = height;
     grid->width = width;
     grid->square_dimensions = height / square_length;
@@ -49,7 +48,7 @@ int main() {
         delta = a - b;
 
 
-        if (delta > 1000 / 120.0) {
+        if (delta > 1000 / 60.0) {
             b = a;
 
             SDL_Event event;
@@ -76,19 +75,13 @@ int main() {
                     } else if (event.key.keysym.sym == SDLK_d) {
                         j++;
 
-                    }
+                    } else if (event.key.keysym.sym == SDLK_p) {
+                        running = 2;
 
-                    else if (event.key.keysym.sym == SDLK_p) {
-                        running=2;
-
-                    }
-
-                    else if (event.key.keysym.sym == SDLK_k) {
-                        running=3;
+                    } else if (event.key.keysym.sym == SDLK_k) {
+                        running = 3;
 
                     }
-
-
 
 
                 }
@@ -99,21 +92,19 @@ int main() {
             SDL_RenderClear(renderer);
             draw_grid(renderer, grid);
             color_rect(renderer, i, j, grid, &color);
-            mouse_handle(renderer, grid, &mouse_color,running);
+
+            obstacles=mouse_handle(running);
+            RenderLinkedCells(renderer,obstacles,grid,&mouse_color);
 
             color_rect(renderer,square_length/2,square_length/2,grid,&target_color);
 
             SDL_RenderPresent(renderer);
 
-
-
-
-
-
         }
 
 
     }
+
 
 
     SDL_Quit();

@@ -6,7 +6,7 @@
 #define MICROMOUSE_LINKEDLIST_H
 
 #include <stdlib.h>
-
+#include "SDL.h"
 typedef struct node {
     struct node *next;
     int x;
@@ -16,6 +16,6 @@ typedef struct node {
 
 void push(node **head, int x, int y);
 
-void check(node **head, int x, int y);
-void remove_element(node **head, int x, int y);
+node* check(node **head, int x, int y);
+node* remove_element(node **head, int x, int y);
 #endif //MICROMOUSE_LINKEDLIST_H

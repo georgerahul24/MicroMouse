@@ -9,25 +9,25 @@
 //TODO:Problem with mouse alignment
 
 
-void check(node **head, int x, int y) {
+node *check(node **head, int x, int y) {
     node *curr = *head;
 
     if (curr == NULL) {
         push(head, x / prec, y / prec);
-        return;
+        return head;
     }
 
     while (curr != NULL) {
 
         if (curr->x == x / prec && curr->y == y / prec) {
-            return;
+            return head;
         }
 
         curr = curr->next;
     }
 
     push(head, x / prec, y / prec);
-    return;
+    return head;
 
 
 }
@@ -39,30 +39,30 @@ void push(node **head, int x, int y) {
     new->next = *head;
 
     *head = new;
-    return;
+
 }
 
 
-void remove_element(node **head, int x, int y) {
+node *remove_element(node **head, int x, int y) {
     node *curr = *head;
 
     if (curr == NULL) {
         //If the list is empty
-        return;
+        return NULL;
     } else if (curr->x == x / prec && curr->y == y / prec) {
         //deleting the first element
         *head = curr->next;
         free(curr);
-        return;
+        return *head;
     } else {
         node *prev = *head;
         curr = (*head)->next;
         while (curr != NULL) {
             if (curr->x == x / prec && curr->y == y / prec) {
                 prev->next = curr->next;
-                node * temp = curr;
+                node *temp = curr;
                 free(temp);
-                return;
+                return *head;
 
             }
             prev = curr;
