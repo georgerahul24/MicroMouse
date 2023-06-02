@@ -22,7 +22,7 @@ Message( STATUS "CMAKE_FINDCMAKE: " ${CMAKE_SOURCE_DIR}/CMAKE )
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMAKE")
-set(SOURCE_FILES    main.c Draw_Grids.c Draw_Grids.h LinkedList.c LinkedList.h SolveMaze1.c SolveMaze1.h RenderCells.c RenderCells.h)
+set(SOURCE_FILES    main.c Draw_Grids.c Draw_Grids.h LinkedList.c LinkedList.h SolveMaze1.c SolveMaze1.h RenderCells.c RenderCells.h AStarAlgorithm.c AStarAlgorithm.h)
 
 Message("")
 Message( STATUS "SOURCE entry point : " ${SOURCE_FILES} )

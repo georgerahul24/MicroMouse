@@ -8,7 +8,7 @@
 -- CMAKE_PROJECT_NAME: MicroMouse
 -- CMAKE_FINDCMAKE: /Users/gr/Desktop/C/MicroMouse/CMAKE
 
--- SOURCE entry point : main.cDraw_Grids.cDraw_Grids.hLinkedList.cLinkedList.hSolveMaze1.cSolveMaze1.hRenderCells.cRenderCells.h
+-- SOURCE entry point : main.cDraw_Grids.cDraw_Grids.hLinkedList.cLinkedList.hSolveMaze1.cSolveMaze1.hRenderCells.cRenderCells.hAStarAlgorithm.cAStarAlgorithm.h
 
 
 -- FINDING SDL2

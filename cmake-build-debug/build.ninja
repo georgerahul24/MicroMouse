@@ -84,6 +84,13 @@ build CMakeFiles/MicroMouse.dir/RenderCells.c.o: C_COMPILER__MicroMouse_Debug /U
   OBJECT_DIR = CMakeFiles/MicroMouse.dir
   OBJECT_FILE_DIR = CMakeFiles/MicroMouse.dir
 
+build CMakeFiles/MicroMouse.dir/AStarAlgorithm.c.o: C_COMPILER__MicroMouse_Debug /Users/gr/Desktop/C/MicroMouse/AStarAlgorithm.c || cmake_object_order_depends_target_MicroMouse
+  DEP_FILE = CMakeFiles/MicroMouse.dir/AStarAlgorithm.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -fcolor-diagnostics -std=gnu2x
+  INCLUDES = -I/opt/homebrew/include/SDL2
+  OBJECT_DIR = CMakeFiles/MicroMouse.dir
+  OBJECT_FILE_DIR = CMakeFiles/MicroMouse.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target MicroMouse
@@ -92,7 +99,7 @@ build CMakeFiles/MicroMouse.dir/RenderCells.c.o: C_COMPILER__MicroMouse_Debug /U
 #############################################
 # Link the executable bin/MicroMouse
 
-build bin/MicroMouse: C_EXECUTABLE_LINKER__MicroMouse_Debug CMakeFiles/MicroMouse.dir/main.c.o CMakeFiles/MicroMouse.dir/Draw_Grids.c.o CMakeFiles/MicroMouse.dir/LinkedList.c.o CMakeFiles/MicroMouse.dir/SolveMaze1.c.o CMakeFiles/MicroMouse.dir/RenderCells.c.o | /opt/homebrew/lib/libSDL2main.a /opt/homebrew/lib/libSDL2.dylib /opt/homebrew/lib/libSDL2_ttf.dylib /opt/homebrew/lib/libSDL2_ttf.dylib /opt/homebrew/lib/libSDL2_image.dylib /opt/homebrew/lib/libSDL2_mixer.dylib
+build bin/MicroMouse: C_EXECUTABLE_LINKER__MicroMouse_Debug CMakeFiles/MicroMouse.dir/main.c.o CMakeFiles/MicroMouse.dir/Draw_Grids.c.o CMakeFiles/MicroMouse.dir/LinkedList.c.o CMakeFiles/MicroMouse.dir/SolveMaze1.c.o CMakeFiles/MicroMouse.dir/RenderCells.c.o CMakeFiles/MicroMouse.dir/AStarAlgorithm.c.o | /opt/homebrew/lib/libSDL2main.a /opt/homebrew/lib/libSDL2.dylib /opt/homebrew/lib/libSDL2_ttf.dylib /opt/homebrew/lib/libSDL2_ttf.dylib /opt/homebrew/lib/libSDL2_image.dylib /opt/homebrew/lib/libSDL2_mixer.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk
   LINK_LIBRARIES = /opt/homebrew/lib/libSDL2main.a  /opt/homebrew/lib/libSDL2.dylib  -framework Cocoa  /opt/homebrew/lib/libSDL2_ttf.dylib  /opt/homebrew/lib/libSDL2_ttf.dylib  -framework Cocoa  /opt/homebrew/lib/libSDL2_image.dylib  /opt/homebrew/lib/libSDL2_mixer.dylib
   OBJECT_DIR = CMakeFiles/MicroMouse.dir

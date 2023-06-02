@@ -11,6 +11,8 @@ typedef struct node {
     struct node *next;
     int x;
     int y;
+    double f,g,h;
+    int visited;
 } node;
 
 
