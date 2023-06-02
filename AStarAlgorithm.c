@@ -126,8 +126,8 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
                     if (!checkInList(obstacles, m, n)) {
                         node *nd = getNode(open_list, m, n);
                         if (nd != NULL && nd->visited==0) {
-                            nd->h = distance(nd, target)*10.00;
-                            nd->g = distance(nd, start)*10.00;
+                            nd->h = distance(nd, target)*5.00;
+                            nd->g = distance(nd, start)*5.00;
 
                             neighbours[neighbour_count++] = nd;
                         }
@@ -152,7 +152,7 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
             if (neighbours[index++]->h < nearest) {
                 nearest_index = index - 1;
                 nearest = neighbours[index - 1]->h;
-                if(((int)nearest<10) || (target->x == neighbours[index-1]->x && target->y==neighbours[index-1]->y)){
+                if(((nearest)<10) || (target->x == neighbours[index-1]->x && target->y==neighbours[index-1]->y)){
                     found=1;
                     break;
                 }

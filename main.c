@@ -127,7 +127,7 @@ int main() {
                     SDL_RenderClear(renderer);
                     draw_grid(renderer, grid);
                     color_rect(renderer, i, j, grid, &path_color);
-                    obstacles = mouse_handle(running);
+
                     color_rect(renderer, square_length / 2, square_length / 2, grid, &target_color);
 
                     RenderLinkedCells(renderer, obstacles, grid, &obstacle_color);

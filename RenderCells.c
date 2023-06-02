@@ -49,7 +49,6 @@ void RenderLinkedCellsAnimated(SDL_Renderer *renderer, node *head, grid_details 
                 }
                 break;
 
-
             }
         }
 
