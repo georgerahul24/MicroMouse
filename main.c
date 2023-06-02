@@ -7,7 +7,7 @@
 
 #define square_length 64
 int height = 1000, width = 1000;
-int i = 0, j = 0;
+int i = 31, j = 31;
 
 int main() {
     int running = 1, status = 0;
@@ -100,10 +100,33 @@ int main() {
     }
 
 
+
+
+
+
     if (status) {
         //path = SolveMaze1(renderer, grid, obstacles, i, j, square_length / 2, square_length / 2);
         path = SolveUsingA(renderer, grid, obstacles, i, j, square_length / 2, square_length / 2);
         running = 1;
+
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
+        draw_grid(renderer, grid);
+        color_rect(renderer, i, j, grid, &path_color);
+
+        color_rect(renderer, square_length / 2, square_length / 2, grid, &target_color);
+
+        RenderLinkedCells(renderer, obstacles, grid, &obstacle_color);
+        RenderLinkedCells(renderer, path, grid, grid->path_color);
+
+
+        SDL_RenderPresent(renderer);
+
+
+
+
+
+
         while (running) {
             a = SDL_GetTicks();
             delta = a - b;
@@ -123,18 +146,7 @@ int main() {
                         }
                     }
 
-                    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                    SDL_RenderClear(renderer);
-                    draw_grid(renderer, grid);
-                    color_rect(renderer, i, j, grid, &path_color);
 
-                    color_rect(renderer, square_length / 2, square_length / 2, grid, &target_color);
-
-                    RenderLinkedCells(renderer, obstacles, grid, &obstacle_color);
-                    RenderLinkedCells(renderer, path, grid, grid->path_color);
-
-
-                    SDL_RenderPresent(renderer);
                 }
 
 

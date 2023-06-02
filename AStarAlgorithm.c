@@ -44,16 +44,19 @@ node *getNode(node *head, int x, int y) {
 
 node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, int sx, int sy, int tx,
                   int ty) {
-    node *closed_list = obstacles;
+    node *closed_list = NULL;
+
     node *open_list = NULL;
     node *path = NULL;
     node *target = malloc(sizeof(target));
     target->x = tx;
     target->y = ty;
+    target->visited=0;
 
     node *start = malloc(sizeof(target));
     start->x = sx;
     start->y = sy;
+    start->visited=0;
 
 
     node *neighbours[8];
@@ -126,9 +129,9 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
                     if (!checkInList(obstacles, m, n)) {
                         node *nd = getNode(open_list, m, n);
                         if (nd != NULL && nd->visited==0) {
-                            nd->h = distance(nd, target)*5.00;
-                            nd->g = distance(nd, start)*5.00;
-
+                            nd->h = distance(nd, target);
+                            nd->g = distance(nd, start);
+                            nd->f=nd->h+nd->g;
                             neighbours[neighbour_count++] = nd;
                         }
 
@@ -146,18 +149,20 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
             break;
         }
         int index = 0;
-        double nearest = neighbours[index++]->h;
+        double nearest = neighbours[index++]->f;
         int nearest_index=0;
         while (index < neighbour_count) {
-            if (neighbours[index++]->h < nearest) {
-                nearest_index = index - 1;
-                nearest = neighbours[index - 1]->h;
-                if(((nearest)<10) || (target->x == neighbours[index-1]->x && target->y==neighbours[index-1]->y)){
-                    found=1;
-                    break;
-                }
+            if(neighbours[index]->x==target->x && neighbours[index]->y==target->y){
+                found = 1;
+                printf("Hi hiell");
+                break;
             }
-            index++;
+            if (neighbours[index++]->f  < nearest) {
+                nearest_index = index - 1;
+                nearest = neighbours[index - 1]->f;
+
+            }
+
         }
 
         neighbours[nearest_index]->next = path;
@@ -170,7 +175,7 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
 
     }
 
-
+    printf("End");
     return path;
 }
 
