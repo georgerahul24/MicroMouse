@@ -100,10 +100,6 @@ int main() {
     }
 
 
-
-
-
-
     if (status) {
         //path = SolveMaze1(renderer, grid, obstacles, i, j, square_length / 2, square_length / 2);
         path = SolveUsingA(renderer, grid, obstacles, i, j, square_length / 2, square_length / 2);
@@ -123,16 +119,12 @@ int main() {
         SDL_RenderPresent(renderer);
 
 
-
-
-
-
         while (running) {
             a = SDL_GetTicks();
             delta = a - b;
 
 
-            if (delta > 1000 / 60.0) {
+            if (delta > 1000 / 20.0) {
                 b = a;
 
                 SDL_Event event;
@@ -145,6 +137,22 @@ int main() {
 
                         }
                     }
+
+
+                    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                    SDL_RenderClear(renderer);
+                    draw_grid(renderer, grid);
+                    color_rect(renderer, i, j, grid, &path_color);
+
+                    color_rect(renderer, square_length / 2, square_length / 2, grid, &target_color);
+
+                    RenderLinkedCells(renderer, obstacles, grid, &obstacle_color);
+                    RenderLinkedCells(renderer, path, grid, grid->path_color);
+
+
+                    SDL_RenderPresent(renderer);
+
+
 
 
                 }
