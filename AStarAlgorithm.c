@@ -3,7 +3,7 @@
 //
 
 #include "AStarAlgorithm.h"
-
+#define max_iterations 4096
 
 int max(int a1, int a2) {
     return a1 > a2 ? a1 : a2;
@@ -32,40 +32,44 @@ int checkInList(node *head, int x, int y) {
 
 node *getNode(node *head, int x, int y) {
     node *curr = head;
-    if (curr == NULL) return NULL;
+    if (curr == NULL)
+        return NULL;
 
     while (curr != NULL) {
-        if (curr->x == x && curr->y == y) return curr;
+        if (curr->x == x && curr->y == y)
+            return curr;
         curr = curr->next;
     }
-    return NULL;
+    return
+            NULL;
 }
 
 
 node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, int sx, int sy, int tx,
                   int ty) {
-    node *closed_list = NULL;
-
+    node *closed_list = obstacles;
+    int count = 0;
     node *open_list = NULL;
     node *path = NULL;
     node *target = malloc(sizeof(target));
     target->x = tx;
     target->y = ty;
-    target->visited=0;
+    target->visited = 0;
 
     node *start = malloc(sizeof(target));
     start->x = sx;
     start->y = sy;
-    start->visited=0;
+    start->visited = 0;
 
 
     node *neighbours[8];
 
 
     //creating the openlist
-    for (int x = 0; x <= 60; x++) {
-        for (int y = 0; y <= 66; y++) {
-            if (!checkInList(obstacles, x, y)) {
+    for (int x = 0; x <= 61; x++) {
+        for (int y = 0; y <= 67; y++) {
+            //if (!checkInList(obstacles, x, y))
+            {
                 node *new = malloc(sizeof(node));
                 new->x = x;
                 new->y = y;
@@ -116,22 +120,22 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
 
     int found = 0;
     node *curr = start;
-    curr->visited=1;
+    curr->visited = 1;
     // get the first node
-    while (found == 0 && open_list != NULL) {
+    while (found == 0 && open_list != NULL && count<max_iterations) {
 
 
         int neighbour_count = 0;
-        for (int m = max(0, curr->x-1); m <= min(60, curr->x + 1); m++) {
-            for (int n = max(0, curr->y-1); n <= min(66, curr->y + 1); n++) {
+        for (int m = max(0, curr->x - 1); m <= min(60, curr->x + 1); m++) {
+            for (int n = max(0, curr->y - 1); n <= min(66, curr->y + 1); n++) {
                 if (!(curr->x == m && curr->y == n)) {
 
-                    if (!checkInList(obstacles, m, n)) {
+                    if (!checkInList(obstacles, m, n) && !checkInList(path,m,n)) {
                         node *nd = getNode(open_list, m, n);
-                        if (nd != NULL && nd->visited==0) {
+                        if (nd != NULL && nd->visited == 0) {
                             nd->h = distance(nd, target);
                             nd->g = distance(nd, start);
-                            nd->f=nd->h+nd->g;
+                            nd->f = nd->h + nd->g;
                             neighbours[neighbour_count++] = nd;
                         }
 
@@ -144,33 +148,37 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
 
         }
 
-        if(neighbour_count==0) {
-            found=1;
+        if (neighbour_count == 0) {
+            found = 1;
             break;
         }
         int index = 0;
-        double nearest = neighbours[index++]->f;
-        int nearest_index=0;
+        double nearest = neighbours[index++]->h;
+        int nearest_index = 0;
         while (index < neighbour_count) {
-            if(neighbours[index]->x==target->x && neighbours[index]->y==target->y){
+            if (neighbours[index]->x == target->x && neighbours[index]->y == target->y) {
                 found = 1;
                 printf("Hi hiell");
                 break;
             }
-            if (neighbours[index++]->f  < nearest) {
+            if (neighbours[index++]->h < nearest) {
                 nearest_index = index - 1;
-                nearest = neighbours[index - 1]->f;
+                nearest = neighbours[index - 1]->h;
 
             }
 
         }
 
-        neighbours[nearest_index]->next = path;
-        path = neighbours[nearest_index];
+        node *nd = malloc(sizeof(node));
+        nd->x = neighbours[nearest_index]->x;
+        nd->y = neighbours[nearest_index]->y;
+        nd->next = path;
+        nd->visited = 1;
+        path = nd;
         curr = path;
-        curr->visited=1;
+        curr->visited = 1;
 
-        //RenderLinkedCellsAnimated(renderer, path, grid, grid->path_color);
+        count++;
 
 
     }

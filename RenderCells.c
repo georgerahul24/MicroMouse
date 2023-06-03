@@ -4,6 +4,8 @@
 
 #include "RenderCells.h"
 
+#define max_iterations 4096
+
 void delay(float number_of_seconds) {
     // Converting time into milli_seconds
     unsigned long milli_seconds = 1000.00 * number_of_seconds;
@@ -18,18 +20,19 @@ void delay(float number_of_seconds) {
 
 void RenderLinkedCells(SDL_Renderer *renderer, node *head, grid_details *grid, SDL_Color *color) {
     node *curr = head;
-    while (curr != NULL) {
+    int count = 0;
+    while (curr != NULL && count++ < max_iterations) {
         RenderRect(renderer, curr->x, curr->y, grid, color);
         curr = curr->next;
     }
 }
 
-void RenderLinkedCellsAnimated(SDL_Renderer *renderer, node *head, grid_details *grid,SDL_Color * color) {
+void RenderLinkedCellsAnimated(SDL_Renderer *renderer, node *head, grid_details *grid, SDL_Color *color) {
     node *curr = head;
     unsigned int a = SDL_GetTicks();
     unsigned int b = SDL_GetTicks();
     double delta = 0;
-    int final_x=0,final_y=0;
+    int final_x = 0, final_y = 0;
 
 
     while (curr != NULL) {
