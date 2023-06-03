@@ -80,43 +80,6 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
         }
     }
 
-    //adding the boundaries into obstacles
-    for (int x = -1; x <= 61; x++) {
-        node *new = malloc(sizeof(node));
-        node *new1 = malloc(sizeof(node));
-
-        new->x = x;
-        new1->x = x;
-        new->y = -1;
-        new1->y = 67;
-
-
-        new->next = closed_list;
-        new1->next = closed_list;
-
-        closed_list = new;
-
-
-    }
-    for (int y = -1; y <= 67; y++) {
-
-
-        node *new = malloc(sizeof(node));
-        node *new1 = malloc(sizeof(node));
-
-        new->x = -1;
-        new1->x = 61;
-        new->y = y;
-        new1->y = y;
-
-
-        new->next = closed_list;
-        new1->next = closed_list;
-
-        closed_list = new1;
-
-
-    }
 
     int found = 0;
     node *curr = start;

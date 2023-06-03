@@ -166,7 +166,26 @@ int main() {
 
     }
 
+    node * curr = path;
+    while (curr != NULL) {
+        node *temp = curr;
+        curr = curr->next;
+        free(temp);
+    }
 
+
+    curr = obstacles;
+    while (curr != NULL) {
+        node *temp = curr;
+        curr = curr->next;
+        free(temp);
+    }
+    free(grid);
+    free(&path_color);
+    free(&obstacle_color);
+    free(&target_color);
+    free(renderer);
+    free(window);
     SDL_Quit();
 
     return 1;
