@@ -51,12 +51,12 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
     int count = 0;
     node *open_list = NULL;
     node *path = NULL;
-    node *target = malloc(sizeof(target));
+    node *target = malloc(sizeof(node));
     target->x = tx;
     target->y = ty;
     target->visited = 0;
 
-    node *start = malloc(sizeof(target));
+    node *start = malloc(sizeof(node));
     start->x = sx;
     start->y = sy;
     start->visited = 0;
@@ -94,7 +94,7 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
         new->next = closed_list;
         new1->next = closed_list;
 
-        closed_list = new1;
+        closed_list = new;
 
 
     }
@@ -183,6 +183,12 @@ node *SolveUsingA(SDL_Renderer *renderer, grid_details *grid, node *obstacles, i
 
     }
 
+    curr = open_list;
+    while (curr != NULL) {
+        node *temp = curr;
+        curr = curr->next;
+        free(temp);
+    }
     printf("End");
     return path;
 }
