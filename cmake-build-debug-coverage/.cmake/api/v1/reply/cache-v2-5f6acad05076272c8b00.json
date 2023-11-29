@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/gr/Desktop/C/MicroMouse/cmake-build-debug"
+			"value" : "/Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "25"
+			"value" : "26"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "2"
+			"value" : "4"
 		},
 		{
 			"name" : "CMAKE_COLOR_DIAGNOSTICS",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+			"value" : "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/cpack"
+			"value" : "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -139,7 +139,19 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/bin/ctest"
+			"value" : "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/ctest"
+		},
+		{
+			"name" : "CMAKE_CXX_FLAGS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "No help, variable specified on the command line."
+				}
+			],
+			"type" : "UNINITIALIZED",
+			"value" : "-fcoverage-mapping -fprofile-instr-generate"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER",
@@ -171,7 +183,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "-fcoverage-mapping -fprofile-instr-generate"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS_DEBUG",
@@ -383,7 +395,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/gr/Desktop/C/MicroMouse/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -499,7 +511,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/ninja/mac/ninja"
+			"value" : "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/ninja/mac/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -767,7 +779,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/CLion.app/Contents/bin/cmake/mac/share/cmake-3.25"
+			"value" : "/Users/gr/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/share/cmake-3.26"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1063,7 +1075,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/gr/Desktop/C/MicroMouse/cmake-build-debug"
+			"value" : "/Users/gr/Desktop/C/MicroMouse/cmake-build-debug-coverage"
 		},
 		{
 			"name" : "MicroMouse_IS_TOP_LEVEL",
@@ -1179,7 +1191,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa"
+			"value" : "/opt/homebrew/lib/libSDL2_ttf.dylib;/opt/homebrew/lib/libSDL2_ttf.dylib;-framework Cocoa"
 		},
 		{
 			"name" : "SDL2_IMAGE_INCLUDE_DIR",
@@ -1251,7 +1263,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2.dylib;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa"
+			"value" : "/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2main.a;/opt/homebrew/lib/libSDL2.dylib;-framework Cocoa;-framework Cocoa"
 		}
 	],
 	"kind" : "cache",
